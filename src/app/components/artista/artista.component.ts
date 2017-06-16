@@ -16,8 +16,8 @@ export class ArtistaComponent implements OnInit {
   ngOnInit() {
 
     this.activatedRoute.params
-        .map(parametros => ['id'])
-        .subscribe( id => {
+        .map(parametros => parametros['id'])
+        .subscribe( id =>{
           console.log(id)
 
           this._spotifyService.getArtista(id)
