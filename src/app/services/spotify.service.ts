@@ -9,12 +9,14 @@ export class SpotifyService {
 
   urlBusqueda = 'https://api.spotify.com/v1/search'
   urlArtista = 'https://api.spotify.com/v1/artists'
+  token = 'BQC2Xziy7gNKvYFW1VKXM4WzhcRoP2RLX2PbL9KWaF3vHIItWsgBeoWtIToW2UyKC4nzy6XAGE9QaM0Rbu-ywA'
+
   constructor(private http: Http) { }
 
   getArtistas( termino: string ) {
 
     const headers =  new Headers();
-    headers.append('authorization', 'Bearer BQC0aeFc34CjpBkRMQtT9kzFBzEURb9dg89_M2Kgcwk3l8-sw1sC7xHdkYqkiGG3gsMAJZ7Yy0otW1rzg7Abkw')
+    headers.append('authorization', `Bearer ${ this.token }`)
 
     const query = `?q=${ termino }&type=artist`;
     const url = this.urlBusqueda + query;
@@ -32,7 +34,7 @@ export class SpotifyService {
   getArtista( id: string ) {
 
     const headers =  new Headers();
-    headers.append('authorization', 'Bearer BQBtblU_w0ap3KRn_bl2Iu41ekPLIcgVGZXCARZvsXcWtPCoGhGDwdN9yzDcxkjC_B7TjujcgnOtDg9tviQWDg')
+    headers.append('authorization', `Bearer ${ this.token }`)
 
     const query = `/${ id }`;
     const url = this.urlArtista + query;
